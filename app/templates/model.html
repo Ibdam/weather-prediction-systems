@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href=".\static\model.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container text-center py-5">
+            <header>
+                <h1 class="display-4 text-light mb-4">Weather Prediction System</h1>
+            </header>
+            <main>
+                <div class="hero bg-light p-5 rounded shadow">
+                  <h2>Why Weather Prediction Matters</h2>
+                  <p>
+                      Weather prediction is crucial for planning and decision-making in various sectors, including agriculture, transportation, and disaster management. 
+                      It provides valuable insights into potential weather events, enabling people to prepare for extreme conditions such as storms, heatwaves, or heavy rainfall.
+                  </p>
+                  <p>
+                      Accurate weather forecasting improves safety, minimizes economic losses, and enhances the efficiency of daily activities. From farmers to pilots,
+                      everyone relies on weather predictions to make informed decisions.
+                  </p>
+                  <p>
+                      With advancements in data analytics, meteorology, and machine learning, weather predictions have become more precise and accessible. Let's explore how 
+                      we can predict weather conditions using key environmental parameters.
+                  </p>
+                    <!-- <h2 class="mb-3">Predict Rain Accurately</h2> -->
+                    <p class="lead"><b> INPUT DETAILED WEATHER PARAMETERS TO CHECK RAIN LIKELIHOOD.</b></p>
+                    <button id="predictRainBtn" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#rainPredictionModal">Start Prediction</button>
+                </div>
+            </main>
+            <footer class="mt-5">
+                <p href='damilolaibrahim.pythonanywhere.com' class="text-light">Built by Damilola Ibrahim. All rights reserved.</p>
+                <p href='damilolaibrahim.pythonanywhere.com' class="text-light">Click to view more of our projects.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rain Prediction Modal -->
+    <div id="rainPredictionModal" class="modal fade" tabindex="-1" aria-labelledby="rainPredictionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="rainPredictionModalLabel">Rain Prediction Inputs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="contact-form" action="/submit_data" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="location" class="form-label">Location (Start from 1):</label>
+                                <div class="dropdown-container">
+                                  <select id="locationSelect" name="Location" required>
+                                      <option value="" disabled selected>Select your location</option>
+                                      <option value="1">New York</option>
+                                      <option value="2">London</option>
+                                      <option value="3">Tokyo</option>
+                                      <option value="4">Sydney</option>
+                                      <option value="5">Cape Town</option>
+                                      <option value="6">Rio de Janeiro</option>
+                                      <option value="7">Beijing</option>
+                                      <option value="8">Moscow</option>
+                                      <option value="9">Toronto</option>
+                                      <option value="10">Mumbai</option>
+                                      <option value="11">Cairo</option>
+                                      <option value="12">Los Angeles</option>
+                                      <option value="13">Mexico City</option>
+                                      <option value="14">Seoul</option>
+                                      <option value="15">Paris</option>
+                                      <option value="16">Bangkok</option>
+                                      <option value="17">Rome</option>
+                                      <option value="18">Istanbul</option>
+                                      <option value="19">Berlin</option>
+                                      <option value="20">Singapore</option>
+                                      <option value="21">Dubai</option>
+                                      <option value="22">Buenos Aires</option>
+                                      <option value="23">Johannesburg</option>
+                                      <option value="24">Chicago</option>
+                                      <option value="25">Hong Kong</option>
+                                      <option value="26">Madrid</option>
+                                      <option value="27">Lagos</option>
+                                      <option value="28">Jakarta</option>
+                                      <option value="29">Nairobi</option>
+                                      <option value="30">Lima</option>
+                                      <option value="31">Santiago</option>
+                                      <option value="32">Baghdad</option>
+                                      <option value="33">Kuala Lumpur</option>
+                                      <option value="34">Havana</option>
+                                      <option value="35">Tehran</option>
+                                      <option value="36">Caracas</option>
+                                      <option value="37">Canberra</option>
+                                      <option value="38">Wellington</option>
+                                      <option value="39">Kathmandu</option>
+                                      <option value="40">Islamabad</option>
+                                      <option value="41">Helsinki</option>
+                                      <option value="42">Stockholm</option>
+                                      <option value="43">Copenhagen</option>
+                                      <option value="44">Oslo</option>
+                                      <option value="45">Reykjavik</option>
+                                      <option value="46">Dublin</option>
+                                      <option value="47">Edinburgh</option>
+                                      <option value="48">Warsaw</option>
+                                      <option value="49">Prague</option>
+                                      <option value="50">Vienna</option>
+                                      <option value="51">Brussels</option>
+                                      <option value="52">Zurich</option>
+                                      <option value="53">Geneva</option>
+                                      <option value="54">Athens</option>
+                                      <option value="55">Budapest</option>
+                                      <option value="56">Belgrade</option>
+                                      <option value="57">Sofia</option>
+                                      <option value="58">Lisbon</option>
+                                      <option value="59">Vilnius</option>
+                                      <option value="60">Riga</option>
+                                      <option value="61">Tallinn</option>
+                                      <option value="62">Brasilia</option>
+                                      <option value="63">Kingston</option>
+                                      <option value="64">Addis Ababa</option>
+                                      <option value="65">Hanoi</option>
+                                      <option value="66">Yangon</option>
+                                      <option value="67">Manila</option>
+                                      <option value="68">Dhaka</option>
+                                      <option value="69">Doha</option>
+                                      <option value="70">Riyadh</option>
+                                      <option value="71">Amman</option>
+                                      <option value="72">Casablanca</option>
+                                      <option value="73">Tunis</option>
+                                      <option value="74">Algiers</option>
+                                      <option value="75">Tripoli</option>
+                                      <option value="76">Accra</option>
+                                      <option value="77">Dakar</option>
+                                      <option value="78">Luanda</option>
+                                      <option value="79">Kinshasa</option>
+                                      <option value="80">Harare</option>
+                                      <option value="81">Dar Es Salaam</option>
+                                      <option value="82">Lusaka</option>
+                                      <option value="83">Maputo</option>
+                                      <option value="84">Bamako</option>
+                                      <option value="85">Kigali</option>
+                                      <option value="86">Abuja</option>
+                                      <option value="87">Windhoek</option>
+                                      <option value="88">Gaborone</option>
+                                      <option value="89">Djibouti</option>
+                                      <option value="90">Antananarivo</option>
+                                      <option value="91">Port Louis</option>
+                                      <option value="92">Victoria</option>
+                                      <option value="93">Male</option>
+                                      <option value="94">Apia</option>
+                                      <option value="95">Nuku Alofa</option>
+                                      <option value="96">Suva</option>
+                                      <option value="97">Port Moresby</option>
+                                      <option value="98">Noumea</option>
+                                      <option value="99">Pago Pago</option>
+                                      <option value="100">Honiara</option>
+                                  </select>
+                                  <br><br>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="minTemp" class="form-label">Minimum Temperature(°C):</label>
+                                <input type="number" step= 'any' id="minTemp" name="min.temp" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="maxTemp" class="form-label">Maximum Temperature(°C):</label>
+                                <input type="number" step= 'any' id="max.Temp" name="max.temp" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="evaporation" class="form-label">Evaporation(mm):</label>
+                                <input type="number" step= 'any' id="evaporation" name="Evaporation" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rainfall" class="form-label">Rainfall(mm):</label>
+                                <input type="number" step= 'any' id="rainfall" name="Rainfall" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="sunshine" class="form-label">Sunshine:</label>
+                                <input type="number" step= 'any' id="sunshine" name="Sunshine" class="form-control" required>
+                            </div><br>
+                            <div class="col-md-6">
+                                <label for="windGustDir" class="form-label">Wind Gust Direction (Start from 0):</label>
+                                  <select id="Wind Gust Direction" name="WindGustDir" required>
+                                      <option value="" disabled selected>Select Wind Gust Direction</option>
+                                      <option value="0">North-North-West</option>
+                                      <option value="1">North-West</option>
+                                      <option value="2">West-North_West</option>
+                                      <option value="3">North</option>
+                                      <option value="4">West</option>
+                                      <option value="5">West-South-west</option>
+                                      <option value="6">North-North-East</option>
+                                      <option value="7">South</option>
+                                      <option value="8">South-South-West</option>
+                                      <option value="9">South-West</option>
+                                      <option value="10">South-South-East</option>
+                                      <option value="11">North-East</option>
+                                      <option value="12">South-East</option>
+                                      <option value="13">East-South-East</option>
+                                      <option value="14">East-North-East</option>
+                                      <option value="15">East</option>
+                                  </select><br><br>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="windGustSpeed" class="form-label">Wind Gust Speed(km/hr):</label>
+                                <input type="number" step= 'any' id="windGustSpeed" name="WindGustSpeed" class="form-control" required>
+                            </div><br>
+                            <div class="col-md-6">
+                                <label for="windDir9am" class="form-label">Wind Direction at 9am (Start from 0):</label>
+                                <select id="Wind Direction" name= "WindDir9am" required>
+                                  <option value="" disabled selected>Select Wind Gust Direction</option>
+                                  <option value="0">North-North-West</option>
+                                  <option value="1">North</option>
+                                  <option value="2">North-West</option>
+                                  <option value="3">North-North-East</option>
+                                  <option value="4">West-North-West</option>
+                                  <option value="5">West</option>
+                                  <option value="6">West-South-West</option>
+                                  <option value="7">South</option>
+                                  <option value="8">South-West</option>
+                                  <option value="9">South-South-West</option>
+                                  <option value="10">North-East</option>
+                                  <option value="11">South</option>
+                                  <option value="12">South-South-East</option>
+                                  <option value="13">East-North-East</option>
+                                  <option value="14">East</option>
+                                  <option value="15">East-South-East</option>
+                                </select>
+                            </div><br>
+                            <div class="col-md-6">
+                              <label for="windDir3pm" class="form-label">Wind Direction at 3pm (Start from 0):</label>
+                                <select id="Wind Direction" name= "WindDir3pm" required>
+                                  <option value="" disabled selected>Select Wind Gust Direction</option>
+                                  <option value="0">North-West</option>
+                                  <option value="1">North-North-West</option>
+                                  <option value="2">North</option>
+                                  <option value="3">West-North-West</option>
+                                  <option value="4">West</option>
+                                  <option value="5">North-North-East</option>
+                                  <option value="6">West-South-West</option>
+                                  <option value="7">South-South-West</option>
+                                  <option value="8">South</option>
+                                  <option value="9">South-West</option>
+                                  <option value="10">South-East</option>
+                                  <option value="11">North-East</option>
+                                  <option value="12">South-South-East</option>
+                                  <option value="13">East-North-East</option>
+                                  <option value="14">East</option>
+                                  <option value="15">East-South-East</option>
+                                </select>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="windSpeed9am" class="form-label">Wind Speed at 9am(km/hr):</label>
+                              <input type="number" step= 'any' id="windSpeed9am" name="WindSpeed9am" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="windSpeed3pm" class="form-label">Wind Speed at 3pm(km/hr):</label>
+                                <input type="number" step= 'any' id="windSpeed3pm" name="WindSpeed3pm" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Humidity9am" class="form-label">Humidity at 9am(%):</label>
+                              <input type="number" step= 'any' id="windSpeed9am" name="Humidity9am" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Humidity3pm" class="form-label">Humidity at 3pm(%):</label>
+                              <input type="number" step= 'any' id="windSpeed3pm" name="Humidity3pm" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Pressure9am" class="form-label">Pressure at 9am(hPa):</label>
+                              <input type="number" step= 'any' id="Pressure9am" name="Pressure9am" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Pressure3pm" class="form-label">Pressure at 3pm(hPa):</label>
+                              <input type="number" step= 'any' id="Pressure3pm" name="Pressure3pm" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cloud9am" class="form-label">Cloud at 9am:</label>
+                                <input type="number" step= 'any' id="cloud9am" name="Cloud9am" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cloud3pm" class="form-label">Cloud at 3pm:</label>
+                                <input type="number" step= 'any' id="cloud3pm" name="Cloud3pm" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Temp9am" class="form-label">Temperature at 9am(°C):</label>
+                              <input type="number" step= 'any' id="Temp9am" name="Temp9am" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="Temp3pm" class="form-label">Temperature at 3pm(°C):</label>
+                              <input type="number" step= 'any' id="Temp3pm" name="Temp3pm" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rainToday" class="form-label">Rain Today (Yes/No):</label>
+                                <select id="RainToday" name= "RainToday" required>
+                                  <option value="" disabled selected>Did it rain today</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+                                </select><br>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="day" class="form-label">Day:</label>
+                                <input type="number" id="day" name="Day" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="month" class="form-label">Month:</label>
+                                <input type="number" id="month" name="Month" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="year" class="form-label">Year:</label>
+                                <input type="number" id="year" name="Year" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success w-100">Predict</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src=".\static\model.js"></script>
+</body>
+</html>
