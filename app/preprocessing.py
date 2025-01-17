@@ -27,7 +27,7 @@ def preprocess_data(data):
     # C:\Users\HP\Desktop\python_project\machine_learning\weather-prediction-systems\models\scaler.pkl
 
     # Load the scaled trained data
-    with open('.\models\scaler.pkl', 'rb') as scaler_file:
+    with open('https://github.com/Ibdam/weather-prediction-systems/blob/main/models/scaler.pkl', 'rb') as scaler_file:
         scaler= pickle.load(scaler_file)
 
     # Transform the input array to standard scaler using the trained scaled
