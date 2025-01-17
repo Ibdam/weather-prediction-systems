@@ -22,13 +22,9 @@ def preprocess_data(data):
     # # Convert user input to 2D array
     input_array= np.array(user_input).reshape(1, -1)
 
-    # file_path = os.path.join(os.path.dirname(__file__), 'models', 'scaler.pkl')
-
-    # C:\Users\HP\Desktop\python_project\machine_learning\weather-prediction-systems\models\scaler.pkl
-
     # Load the scaled trained data
-    with open('app\scaler.pkl', 'rb') as scaler_file:
-        scaler= pickle.load(scaler_file)
+    with open('scaler.pkl', 'rb') as scaler_file:
+        scaler = pickle.load(scaler_file)
 
     # Transform the input array to standard scaler using the trained scaled
     scaled_input= scaler.transform(input_array)
