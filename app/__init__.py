@@ -51,7 +51,7 @@ def create_app(test_config=None):
             # model_path = os.path.join(os.path.dirname(__file__), 'models', 'model.pkl.gz')
 
             # Loading a compressed model efficiently
-            with gzip.open('https://github.com/Ibdam/weather-prediction-systems/blob/main/models/model.pkl.gz', 'rb') as f:
+            with gzip.open('model.pkl.gz', 'rb') as f:
                 model = pickle.load(f)
 
             # Make a prediction and return result in form of an HTML
