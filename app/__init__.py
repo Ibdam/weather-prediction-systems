@@ -49,9 +49,9 @@ def create_app(test_config=None):
             processed_data= preprocess_data(data)
             
             # model_path = os.path.join(os.path.dirname(__file__), 'models', 'model.pkl.gz')
-
+        
             # Loading a compressed model efficiently
-            with gzip.open('.\models\model.pkl.gz', 'rb') as f:
+            with gzip.open('app\model.pkl.gz', 'rb') as f:
                 model = pickle.load(f)
 
             # Make a prediction and return result in form of an HTML
