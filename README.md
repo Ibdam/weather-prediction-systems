@@ -1,4 +1,4 @@
-## Weather-prediction-system
+## WEATHER-PREDICTION-SYSTEM
 This repository contains a machine learning model for predicting weather condition either it will rain tomorrow based on historical weather data. The historical data was analysed, cleaned and integrate machine learning algorithm to build model. The model built is deployed as a Flask web application, allowing users to input weather parameters and receive predictions.
 
 ---
@@ -10,7 +10,7 @@ This repository contains a machine learning model for predicting weather conditi
 - Includes sample data for testing.
 
 ---
-## Setup Instructions
+## SET UP INSTRUCTIONS
 
 ### Prerequisites
 Ensure you have the following installed:
@@ -22,11 +22,12 @@ Ensure you have the following installed:
 - Pickle
 - Matplotlib
 - Numpy
+- Pandas
 
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/ibdam/Weather-prediction-system.git
+    git clone https://github.com/ibdam/weather-prediction-systems.git
     cd rain_prediction
 
 ## Create and activate a virtual environment
@@ -40,7 +41,7 @@ pip install requirements.txt
 
 ## Running the application locally
 ```bash
-flask --app flaskr run --debug
+flask --app app run --debug
 Access the application at http://127.0.0.1:5000
 
 #Testing by inputting these data manually via the web
@@ -83,9 +84,7 @@ Prediction: "There will be rain tomorrow" or "No rain tomorrow"
     'RainToday': 1,             # Rain today: 1 means "Yes", 0 means "No"
     'Day': 12,                  # Day of the month
     'Month': 8,                 # Month (e.g., August)
-    'Year': 2023                # Year
-
-              
+    'Year': 2023                # Year   
 
 2. No Rain:
     'Location': 28,             # Jarkarta
@@ -113,14 +112,14 @@ Prediction: "There will be rain tomorrow" or "No rain tomorrow"
     'Month': 3,                 # Month (e.g., March)
     'Year': 2023                # Year
 
-
 By inputting this paramenters it will bring out the prediction with 85% efficiemcy
 
 Deployment
 To deploy the application:
 
 1. Set up a server with Flask and Gunicorn.
-2. Push the code to a cloud platform (e.g. Heroku, AWS, or Google Cloud).
+2. Create a running app wsgi for deployment
+2. Push the code to a cloud platform (e.g. Heroku, AWS, Google Cloud OR Render).
 
 CONTRIBUTING
 Contributions are welcome! Please follow these steps:
